@@ -14,17 +14,22 @@ public class Main {
         System.out.println("1. översätt text till morsekod");
         System.out.println("2. översätt morsekod till text");
 
-        String userChoice = scanner.nextLine();
+        int userChoice = scanner.nextInt();
+        scanner.nextLine();
 
-        if (userChoice.equals("1")){
+        if (userChoice==1) {
             System.out.println("skriv in den text du vill översätta till morsekod");
-            String input = scanner.nextLine(); //läs in text fr¨n användaren
-            String result = convertMorseCode.to
-                    //TESTAR
-
-            //Test Malin + Erikas test2
+            String indata = scanner.nextLine(); //läs in text från användaren
+            String result = convertMorseCode.toMorseCode(indata);
+            System.out.println(result);
+        } else if (userChoice==2) {
+            System.out.println("skriv in den morsekod du vill översätta till text");
+            String indata =scanner.nextLine();
+            String result = convertMorseCode.toEnglish(indata);
+            System.out.println(result);
+        } else {
+            System.out.println("Ange ditt val genom att skriv 1 eller 2");
         }
-
 
     }
 

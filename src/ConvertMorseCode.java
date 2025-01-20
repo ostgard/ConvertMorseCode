@@ -38,40 +38,38 @@ public class ConvertMorseCode {
         for (Character key : englishToMorse.keySet()) {
             morseToEnglish.put(englishToMorse.get(key), key);
         }
-
-        //metod för att översätta text till morse
-        public String toMorse (String text){
-            StringBuilder morseCode = new StringBuilder();
-            text = text.toUpperCase(); // Gör texten till stora bokstäver
-            for (char c : text.toCharArray()) {
-                if (englishToMorse.containsKey(c)) {
-                    morseCode.append(englishToMorse.get(c)).append(" ");
-                } else if (c == ' ') {
-                    morseCode.append("   "); // Lägg till mellanrum mellan ord
-                } else {
-                    return "Felaktig inmatning: " + c; // Felhantering
-                }
-            }
-            return morseCode.toString().trim();
-        }
-
-        // metod för att översätta morsekod till text
-        public String toEnglish (String morse){
-            StringBuilder text = new StringBuilder();
-            String[] words = morse.trim().split("   "); // Dela upp på ord
-            for (String word : words) {
-                for (String letter : word.split(" ")) { // Dela upp på bokstäver
-                    if (morseToEnglish.containsKey(letter)) {
-                        text.append(morseToEnglish.get(letter));
-                    } else {
-                        return "Felaktig inmatning: " + letter; // Felhantering
-                    }
-                }
-                text.append(" ");
-            }
-            return text.toString().trim();
-        }
-
     }
 
+
+    //metod för att översätta text till morse
+    public String toMorseCode(String intext) {
+        StringBuilder morseCode = new StringBuilder();
+        intext = intext.toUpperCase(); // Gör texten till stora bokstäver
+        for (char c : intext.toCharArray()) {
+            if (englishToMorse.containsKey(c)) {
+                morseCode.append(englishToMorse.get(c)).append(" ");
+            } else if (c == ' ') {
+                morseCode.append("   "); // Lägg till mellanrum mellan ord
+            } else {
+                return "Felaktig inmatning: " + c; // Felhantering
+            }
+        }
+        return morseCode.toString().trim();
+    }
+
+    // metod för att översätta morsekod till text
+    public String toEnglish(String morse) {
+        StringBuilder text = new StringBuilder();
+        String[] wordsArray = morse.split(" "); // Dela upp ord per mellanslag
+        for (int i = 0; i < wordsArray.length; i++) {
+            String morseChar = wordsArray[i];
+            if (morseToEnglish.containsKey(morseChar)) {
+                text.append(morseToEnglish.get(morseChar));
+            } else {
+                return "Felaktig inmatning: " + morseChar; // Felhantering
+            }
+        }
+
+        return text.toString();
+    }
 }
