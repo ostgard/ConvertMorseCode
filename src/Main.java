@@ -20,6 +20,7 @@ public class Main {
             System.out.println("skriv in den text du vill översätta till morsekod");
             String input = scanner.nextLine(); //läs in text fr¨n användaren
             String result = convertMorseCode.to
+                    //TESTAR
         }
 
 
