@@ -22,7 +22,7 @@ public class Main {
             String result = convertMorseCode.to
                     //TESTAR
 
-            //Test Malin
+            //Test Malin + Erikas test2
         }
 
 
