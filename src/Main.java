@@ -21,6 +21,8 @@ public class Main {
             String input = scanner.nextLine(); //läs in text fr¨n användaren
             String result = convertMorseCode.to
                     //TESTAR
+
+            //Test Malin
         }
 
 
