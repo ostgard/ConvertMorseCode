@@ -43,33 +43,61 @@ public class ConvertMorseCode {
 
     //metod för att översätta text till morse
     public String toMorseCode(String intext) {
-        StringBuilder morseCode = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         intext = intext.toUpperCase(); // Gör texten till stora bokstäver
-        for (char c : intext.toCharArray()) {
-            if (englishToMorse.containsKey(c)) {
-                morseCode.append(englishToMorse.get(c)).append(" ");
-            } else if (c == ' ') {
-                morseCode.append("   "); // Lägg till mellanrum mellan ord
+        char[] charArray = intext.toCharArray();
+        for (char inmatadeTecken : charArray) {
+            if (englishToMorse.containsKey(inmatadeTecken)) {
+                stringBuilder.append(englishToMorse.get(inmatadeTecken)).append(" ");
+            } else if (inmatadeTecken == ' ') {
+                stringBuilder.append("  "); // Lägg till mellanrum mellan ord
             } else {
-                return "Felaktig inmatning: " + c; // Felhantering
+                return "Felaktig inmatning: " + inmatadeTecken; // Felhantering
             }
         }
-        return morseCode.toString().trim();
+        return stringBuilder.toString().trim();
     }
 
     // metod för att översätta morsekod till text
     public String toEnglish(String morse) {
-        StringBuilder text = new StringBuilder();
-        String[] wordsArray = morse.split(" "); // Dela upp ord per mellanslag
-        for (int i = 0; i < wordsArray.length; i++) {
-            String morseChar = wordsArray[i];
-            if (morseToEnglish.containsKey(morseChar)) {
-                text.append(morseToEnglish.get(morseChar));
+        StringBuilder stringBuilder = new StringBuilder();
+        String[] morseArray = morse.split(" "); // Dela upp ord per mellanslag, skapar "listan" morseArray, till separata strängobjekt
+        // for (int i = 0; i < morseArray.length; i++) {
+        //String morseChar = morseArray[i];
+        for (String morseSign : morseArray) {
+            if (morseToEnglish.containsKey(morseSign)) {
+                stringBuilder.append(morseToEnglish.get(morseSign));
+            } else if (morseSign.equals("  ")) {//lös hur det ska se ut om man ska mata in flera ord i morsekod.
+                stringBuilder.append(' ');
+
             } else {
-                return "Felaktig inmatning: " + morseChar; // Felhantering
+
+                return "Felaktig inmatning: " + morseSign; // Felhantering
             }
         }
-
-        return text.toString();
+        return stringBuilder.toString();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
