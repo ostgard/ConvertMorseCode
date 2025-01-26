@@ -30,7 +30,7 @@ public class Main {
             String result = convertMorseCode.toEnglish(indata);
             System.out.println(result);
         } else {
-            System.out.println("Ange ditt val genom att skriv 1 eller 2");
+            System.out.println("Ange ditt val genom att skriva 1 eller 2");
         }
 
 

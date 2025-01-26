@@ -22,4 +22,7 @@ public class ConvertMorseCodeTest {
     public void testInvalidCharToMorse(){
         assertEquals("Felaktig inmatning: 2", convertMorseCode.toMorseCode("2"));
     }
+
+
+
 }

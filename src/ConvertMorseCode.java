@@ -43,6 +43,8 @@ public class ConvertMorseCode {
 
     //metod för att översätta text till morse
     public String toMorseCode(String intext) {
+
+
         StringBuilder stringBuilder = new StringBuilder();
         intext = intext.toUpperCase(); // Gör texten till stora bokstäver
         char[] charArray = intext.toCharArray();
@@ -58,6 +60,7 @@ public class ConvertMorseCode {
         return stringBuilder.toString().trim();
     }
 
+
     // metod för att översätta morsekod till text
     public String toEnglish(String morse) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -65,18 +68,22 @@ public class ConvertMorseCode {
         // for (int i = 0; i < morseArray.length; i++) {
         //String morseChar = morseArray[i];
         for (String morseSign : morseArray) {
+
             if (morseToEnglish.containsKey(morseSign)) {
                 stringBuilder.append(morseToEnglish.get(morseSign));
-            } else if (morseSign.equals("  ")) {//lös hur det ska se ut om man ska mata in flera ord i morsekod.
-                stringBuilder.append(' ');
+//            } else if (morseSign.equals("  ")) {//lös hur det ska se ut om man ska mata in flera ord i morsekod.
+//                stringBuilder.append(' ');
 
             } else {
 
                 return "Felaktig inmatning: " + morseSign; // Felhantering
             }
+            //System.out.println("Skriv den morsekod du vill översätta till text, använd . och/eller - ");
         }
         return stringBuilder.toString();
     }
+
+
 }
 
 
