@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -28,31 +27,34 @@ public class Main {
                 break; // Avslutar loopen
             }
 
-            int userChoice = Integer.parseInt(input); // Försök att tolka som en siffra
+            try {
+                int userChoice = Integer.parseInt(input); // Försök att tolka som en siffra
 
+                if (userChoice == 1) {
+                    System.out.println("skriv in den text du vill översätta till morsekod");
+                    String indata = scanner.nextLine(); //läs in text från användaren
+                    System.out.println(convertMorseCode.toMorseCode(indata));
 
-            if (userChoice == 1) {
-                System.out.println("skriv in den text du vill översätta till morsekod");
-                String indata = scanner.nextLine(); //läs in text från användaren
-                System.out.println(convertMorseCode.toMorseCode(indata));
+                } else if (userChoice == 2) {
+                    System.out.println("skriv in den morsekod du vill översätta till text, använd mellanslag mellan varje morsekodtecken");
+                    String indata = scanner.nextLine();
+                    String result = convertMorseCode.toEnglish(indata);
+                    System.out.println(result);
 
-            } else if (userChoice == 2) {
-                System.out.println("skriv in den morsekod du vill översätta till text, använd mellanslag mellan varje morsekodtecken");
-                String indata = scanner.nextLine();
-                String result = convertMorseCode.toEnglish(indata);
-                System.out.println(result);
+                } else {
+                    System.out.println("Ange ditt val genom att skriva 1 eller 2");
+                    System.out.println("avsluta programmet genom att skriva stop");
 
-
-            } else {
-                System.out.println("Ange ditt val genom att skriva 1 eller 2");
-                System.out.println("avsluta programmet genom att skriva stop");
-
-
+                }
+            } catch (NumberFormatException e) { //fångar om användaren matar in något anant än en siffra
+                System.out.println("Fel; Du måste ange en siffra");
+            }catch (Exception e) {
+                System.out.println("Ett oväntat fel inträffade: " + e.getMessage());
             }
+
         }
         scanner.close();
-
-
     }
 
 }
+
