@@ -19,10 +19,23 @@ public class ConvertMorseCodeTest {
     }
 
     @Test
-    public void testInvalidCharToMorse(){
-        assertEquals("Felaktig inmatning: 2", convertMorseCode.toMorseCode("2"));
+    public void testSentenceToMorseCode() {
+        assertEquals(".... . .-.. .-.. ---   .-- --- .-. .-.. -..", convertMorseCode.toMorseCode("HELLO WORLD"));
     }
 
+    @Test
+    public void testMorseCodeToWord() {
+        assertEquals("HELLO", convertMorseCode.toEnglish(".... . .-.. .-.. ---"));
+    }
 
+    @Test
+    public void testInvalidCharToMorse() {
+        assertEquals("Felaktig inmatning: %", convertMorseCode.toMorseCode("%"));
+    }
+
+    @Test
+    public void testNonExistingMorseCode() {
+        assertEquals("Felaktig inmatning: ヽ(•‿•)ノ", convertMorseCode.toEnglish("ヽ(•‿•)ノ"));
+    }
 
 }

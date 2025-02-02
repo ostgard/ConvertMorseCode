@@ -64,7 +64,7 @@ public class ConvertMorseCode {
     // metod för att översätta morsekod till text
     public String toEnglish(String morse) {
         StringBuilder stringBuilder = new StringBuilder();
-        String[] morseArray = morse.split(" "); // Dela upp ord per mellanslag, skapar "listan" morseArray, till separata strängobjekt
+        String[] morseArray = morse.split(" "); // använder metoden .split, delar upp ord per mellanslag, skapar "listan" morseArray, till separata strängobjekt
         // for (int i = 0; i < morseArray.length; i++) {
         //String morseChar = morseArray[i];
         for (String morseSign : morseArray) {
