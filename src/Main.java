@@ -16,7 +16,6 @@ public class Main {
             System.out.println("1. översätt text till morsekod");
             System.out.println("2. översätt morsekod till text");
 
-
 //        int userChoice = scanner.nextInt();
 //        scanner.nextLine();
 
@@ -46,9 +45,9 @@ public class Main {
                     System.out.println("avsluta programmet genom att skriva stop");
 
                 }
-            } catch (NumberFormatException e) { //fångar om användaren matar in något anant än en siffra
-                System.out.println("Fel; Du måste ange en siffra");
-            }catch (Exception e) {
+            } catch (NumberFormatException e) { //felhantering, fångar om användaren matar in något anant än en siffra
+                System.out.println("Du har angivit ett felaktigt val, ange en siffra");
+            }catch (Exception e) { //
                 System.out.println("Ett oväntat fel inträffade: " + e.getMessage());
             }
 
