@@ -16,7 +16,6 @@ public class Main {
             System.out.println("1. översätt text till morsekod");
             System.out.println("2. översätt morsekod till text");
 
-
 //        int userChoice = scanner.nextInt();
 //        scanner.nextLine();
 
